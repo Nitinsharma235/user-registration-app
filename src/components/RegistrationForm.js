@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { useRef } from 'react';
 
+function generateId() {
+  return Date.now().toString() + Math.random().toString(36).substr(2, 5);
+}
+
 function RegistrationForm({onRegister}) {
   const nameRef=useRef(null);
   const emailRef=useRef(null);
@@ -18,7 +22,7 @@ function RegistrationForm({onRegister}) {
     const address=addressRef.current.value.trim();
   
     const newUser={
-      // id:generate
+      id:generateId(),
       name:name,
       email:email,
       phone:phone,

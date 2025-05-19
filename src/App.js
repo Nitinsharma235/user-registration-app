@@ -5,15 +5,15 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import UserList from './components/UserList';
 import Home from './pages/Home';
 import { useState,useEffect } from 'react';
+import UserProfile from './components/UserProfile';
 
 function App() {
   const [userData,setUserData]=useState([]);
 
 
   const handleRegister= (newUser) =>{
-    setUserData(prev => [...prev, newUser]);   // safe, uses freshest state
+    setUserData(prev => [...prev, newUser]);   
 
-    // setUserData([...userData,newUser]);
   }
 
     useEffect(() => {
@@ -30,6 +30,11 @@ function App() {
     {
       path:"/register",
       element:<><Navbar/><RegistrationForm  onRegister={handleRegister}/></>
+    },
+
+    {
+      path:'/user/:id',
+      element:<><Navbar/>{<UserProfile userData={userData} />}</>
     }
   ])
 
@@ -38,7 +43,7 @@ function App() {
     <>
    
     
-    <RouterProvider router={router} basename="/your-base-url" />
+    <RouterProvider router={router} />
 
     <div className="App">
     
