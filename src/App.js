@@ -1,5 +1,4 @@
 import './App.css';
-import RegistrationForm from './components/RegistrationForm';
 import Navbar from './components/Navbar';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import Register from './pages/Register';
@@ -34,7 +33,7 @@ function App() {
 
     {
       path:'/user/:id',
-      element:<><Navbar/>{<Profile/>}</>
+      element:<><Navbar/><Profile/></>
     }
   ])
 

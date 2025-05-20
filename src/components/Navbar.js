@@ -2,13 +2,39 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 function Navbar() {
   return (
-    <div>
-      <nav>
-      <NavLink to='/'><li>Home</li></NavLink>
-      <NavLink to='/register'><li>Register</li></NavLink>
-      {/* <NavLink to='/profile'><li>Profile Page</li></NavLink> */}
-      </nav>
-    </div>
+    <nav     style={{
+      backgroundColor: '#f0f0f0',
+      padding: '10px',
+      display: 'flex',
+      gap: '20px',
+      fontFamily: 'Arial, sans-serif',
+      fontSize: '20px',
+      alignItems: 'center',
+      listStyle: 'none',
+    }}
+>
+    
+       <NavLink
+        to="/"
+        style={({ isActive, isPending }) => ({
+          fontWeight: isActive ? 'bold' : '',
+          color: isPending ? 'red' : 'black',
+        })}
+       >
+        Home
+      </NavLink>
+    
+      <NavLink
+        to="/register"
+        style={({ isActive, isPending }) => ({
+          fontWeight: isActive ? 'bold' : '',
+          color: isPending ? 'red' : 'black',
+        })}
+      >
+        Register
+      </NavLink>
+</nav>
+
   )
 }
 
