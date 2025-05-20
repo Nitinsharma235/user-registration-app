@@ -2,10 +2,10 @@ import './App.css';
 import RegistrationForm from './components/RegistrationForm';
 import Navbar from './components/Navbar';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
-import UserList from './components/UserList';
+import Register from './pages/Register';
 import Home from './pages/Home';
 import { useState,useEffect } from 'react';
-import UserProfile from './components/UserProfile';
+import Profile from './pages/Profile';
 
 function App() {
   const [userData,setUserData]=useState([]);
@@ -29,12 +29,12 @@ function App() {
   
     {
       path:"/register",
-      element:<><Navbar/><RegistrationForm  onRegister={handleRegister}/></>
+      element:<><Navbar/><Register  onRegister={handleRegister}/></>
     },
 
     {
       path:'/user/:id',
-      element:<><Navbar/>{<UserProfile userData={userData} />}</>
+      element:<><Navbar/>{<Profile/>}</>
     }
   ])
 

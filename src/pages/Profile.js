@@ -1,9 +1,10 @@
 import React from 'react'
+import UserProfile from '../components/UserProfile'
 
 function Profile() {
   return (
     <div>
-    Profile Page
+    <UserProfile/>
     </div>
   )
 }

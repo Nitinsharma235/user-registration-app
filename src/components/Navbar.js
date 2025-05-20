@@ -5,7 +5,7 @@ function Navbar() {
     <div>
       <nav>
       <NavLink to='/'><li>Home</li></NavLink>
-      <NavLink to='/register'><li>Registration Form</li></NavLink>
+      <NavLink to='/register'><li>Register</li></NavLink>
       {/* <NavLink to='/profile'><li>Profile Page</li></NavLink> */}
       </nav>
     </div>

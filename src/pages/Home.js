@@ -4,7 +4,6 @@ import UserList from '../components/UserList'
 function Home({userData}) {
   return (
     <div>
-      at Home
       <UserList userData={userData}/>
     </div>
   )

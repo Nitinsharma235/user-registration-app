@@ -21,6 +21,10 @@ function RegistrationForm({onRegister}) {
     const gender=genderRef.current.value.trim();
     const address=addressRef.current.value.trim();
   
+    if(!name || !email || !phone || !gender || !address){ 
+      alert("Enter the details");
+      return;
+    }
     const newUser={
       id:generateId(),
       name:name,
@@ -36,7 +40,7 @@ function RegistrationForm({onRegister}) {
   return (
     <div>
       <h1>Registration Form</h1>
-      Name:{" "} <input type='text' placeholder='Enter your Full Name' ref={nameRef}/><br/>
+      Name<sup>*</sup>:{" "} <input type='text' placeholder='Enter your Full Name' ref={nameRef}/><br/>
       E-mail:{" "}<input type='email' placeholder="Enter your Email" ref={emailRef} /><br/>
       Phone-No.:{" "}<input type='tel' placeholder="Enter your phone no." ref={phoneRef} /><br/>
       Gender:{" "}<input type='text' placeholder="Enter gender" ref={genderRef} /><br/>

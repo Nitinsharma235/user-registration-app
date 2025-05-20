@@ -1,13 +1,13 @@
 import React from 'react'
+import RegistrationForm from '../components/RegistrationForm'
 
-function Register() {
+function Register({onRegister}) {
   return (
     <div>
-      
+     <RegistrationForm onRegister={onRegister}/> 
     </div>
   )
 }
-
 export default Register
 
 
