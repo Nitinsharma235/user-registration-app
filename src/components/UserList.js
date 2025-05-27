@@ -21,7 +21,7 @@ function UserList() {
  
   return (
     <div>
-      Search Name:{' '}
+   <strong>  Search Name:</strong>{' '}
       <input type="text" placeholder='search here' value={input} 
        onChange={(e) => setInput(e.target.value)}></input>
      <div className="user-list-container">
