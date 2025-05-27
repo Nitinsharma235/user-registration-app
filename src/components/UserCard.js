@@ -5,7 +5,7 @@ const UserCard = ({user}) => {
     <div className="user-card" >
       
       <span>Name  :{user.name}</span><br/>
-      <span>Gender :{user.gender}</span><br/>
+      <span>ID Number :{user.id}</span><br/>
     </div>
   )
 }

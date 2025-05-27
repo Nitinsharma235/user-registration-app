@@ -4,7 +4,7 @@ import RegistrationForm from '../components/RegistrationForm'
 function Register({onRegister}) {
   return (
     <div>
-     <RegistrationForm onRegister={onRegister}/> 
+     <RegistrationForm edit/> 
     </div>
   )
 }
