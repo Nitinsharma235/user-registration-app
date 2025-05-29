@@ -1,50 +1,26 @@
-import { useEffect, useState, useMemo, useRef } from "react";
+import {  useState, forwardRef, useImperativeHandle } from "react";
 import { useNavigate } from "react-router-dom";
 import UserCard from "./UserCard";
-import React from 'react';
 
-function UserList({userData, searchInput}) {
 
-const prevSearched = useRef(userData);
-const prevSearchText = useRef('');
-
-  
- console.log("userList re-rendered")
-//  console.log("useData",userData);
+const UserList = forwardRef((props, ref) => {
+  const [filteredData,setfilteredData] = useState([]);
+  // The component instance will be extended
+  // with whatever you return from the callback passed
+  // as the second argument
+  useImperativeHandle(ref, () => (
+    {
+      setfilteredData: setfilteredData
+    }
+  ));
   
   const navigate = useNavigate();
-       
-  // const filteredData = useMemo(() => {
-  //  return userData.filter(user =>
-  //   user.name.toLowerCase().includes(searchInput.toLowerCase()) );
-  // }, [ userData, searchInput]);
 
-  const filteredData = useMemo(() => {
-    // Reset filtering if search is cleared or reduced
-    if (
-      searchInput.length === 0 ||
-      searchInput.length < prevSearchText.current.length
-    ) {
-      prevSearched.current = userData;
-    }
-
-    // Filter the previous filtered data
-    const newFiltered = prevSearched.current.filter(user =>
-      user.name.toLowerCase().includes(searchInput.toLowerCase())
-    );
-
-    // Update refs
-    prevSearched.current = newFiltered;
-    prevSearchText.current = searchInput;
-
-    return newFiltered;
-  }, [userData, searchInput]);
-
-   console.log("Filtered Data",filteredData)
+  console.log("userList re-rendered",filteredData);
+   
   
   return (
     <div>
-    
       <div className="user-list-container">
        {filteredData?.map((user) => (
           <div
@@ -63,9 +39,9 @@ const prevSearchText = useRef('');
       </div>
     </div>
   );
-}
+});
 
-export default React.memo(UserList);
+export default UserList;  
 
 
 
