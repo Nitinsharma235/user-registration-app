@@ -1,6 +1,10 @@
 import UserList from '../components/UserList'
 import { useEffect, useState, useRef } from "react";
 
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 function Home() {
   const [userData, setUserData] = useState([]);
   //const [searchInput, setSearchInput] = useState("");
@@ -43,8 +47,19 @@ function Home() {
 
   return (
     <div>
-      <strong> Search Name: </strong>{' '}
-      <input type="text" placeholder='search here' ref={searchRef} onChange={filterData}></input>
+      <br/>
+      <Row>
+        <Col></Col>
+        <Col xs={3}>
+          <Form >
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Control type="text" placeholder="Search name" ref={searchRef} onChange={filterData}/>
+            </Form.Group>
+          </Form>
+        </Col>
+        <Col></Col>
+      </Row>
+
       <UserList userData={userData}  ref={userListRef} />
     </div>
   )

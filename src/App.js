@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import CustNavBar from './components/CustNavBar';
 // import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './pages/Register';
@@ -10,8 +10,9 @@ import RegistrationForm from './components/RegistrationForm';
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Navbar/>
+      {console.log('App reloaded')}
+      <div className="bg-secondary" style={{minHeight:'97vh'}}>
+        <CustNavBar/>
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/register' element={<Register />}/>

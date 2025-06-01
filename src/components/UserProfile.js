@@ -1,4 +1,5 @@
 import { useLocation,useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 function UserProfile() {
   
     const { state } = useLocation();
@@ -14,7 +15,8 @@ function UserProfile() {
   return (
     <div>
       <h2>User Profile</h2>
-      <button onClick={handleEditclick} >Edit</button>
+      {/* <button onClick={handleEditclick} >Edit</button> */}
+      <Button variant="light" onClick={handleEditclick} >Edit</Button>
       <p><strong>Name:</strong> {user.name}</p>
       <p><strong>Email:</strong> {user.email}</p>
       <p><strong>Phone:</strong> {user.phone}</p>

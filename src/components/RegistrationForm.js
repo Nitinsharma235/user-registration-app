@@ -1,6 +1,12 @@
 import '../App.css';
 import { useRef, useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import { Container, FormLabel } from 'react-bootstrap';
+
 function generateId() {
   return Date.now().toString() + Math.random().toString(36).substr(2, 5);
 }
@@ -212,53 +218,93 @@ useEffect(() => {
   };
 
   return (
-    <div className="input-field">
-      {(pathname==="/edit")?<h1>Update Profile</h1>: <h1>Registration Form</h1>}
-     
+    <div>
+      <br/>
+      <Container style={{backgroundColor:'rgb(167, 188, 172)'}}>
+        {(pathname==="/edit")?<h1>Update Profile</h1>: <h1>Registration Form</h1>}
+        <Form>
+          <Row classname='m-1' >
+            <Col xs={12} lg={5} className='m-2 mb-1 '>
+              <Row>
+                <Col lg={2}>
+                  <Form.Label column className='fw-bold'>
+                    Name:
+                  </Form.Label>
+                </Col>
+                <Col lg={10}>
+                  <Form.Control placeholder="Enter your Full Name" ref={nameRef} />
+                  {error.name && <span className="error">{error.name}</span>}
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={12} lg={5} className='m-2'>
+              <Form.Control placeholder="Last name" />
+            </Col>
+            <Col xs={12} lg={5} className='m-2'>
+              <Form.Control placeholder="First name"/>
+            </Col>
+            <Col xs={12} lg={5} className='m-2'>
+              <Form.Control placeholder="Last name" />
+            </Col>
+            <Col xs={12} lg={5} className='m-2'>
+              <Form.Control placeholder="First name"/>
+            </Col>
+            <Col xs={12} lg={5} className='m-2'>
+              <Form.Control placeholder="Last name" />
+            </Col>
+          </Row>
+        </Form>
+      </Container>
+      <div className="input-field">
+      
 
-      <label>Name<sup>*</sup>:</label><br />
-      <input type="text" placeholder="Enter your Full Name" ref={nameRef} />
-      {error.name && <span className="error">{error.name}</span>}<br />
+        <label>Name<sup>*</sup>:</label><br />
+        <input type="text" />
+        {error.name && <span className="error">{error.name}</span>}<br />
+        
 
-      <label>Email:</label><br />
-      <input type="email" placeholder="Enter your Email" ref={emailRef} />
-      {error.email && <span className="error">{" "}{error.email}</span>}<br />
+        <label>Email:</label><br />
+        <input type="email" placeholder="Enter your Email" ref={emailRef} />
+        {error.email && <span className="error">{" "}{error.email}</span>}<br />
 
-      <label>Phone No.:</label><br />
-      <input type="tel" placeholder="Enter your phone no." ref={phoneRef} />
-      {error.phone && <span className="error">{" "}{error.phone}</span>}<br />
+        <label>Phone No.:</label><br />
+        <input type="tel" placeholder="Enter your phone no." ref={phoneRef} />
+        {error.phone && <span className="error">{" "}{error.phone}</span>}<br />
 
-      <label>Gender:</label><br />
-      <select ref={genderRef}>
-        <option value="">-- Select Gender --</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-      {error.gender && <span className="error">{" "}{error.gender}</span>}<br />
+        <label>Gender:</label><br />
+        <select ref={genderRef}>
+          <option value="">-- Select Gender --</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        {error.gender && <span className="error">{" "}{error.gender}</span>}<br />
 
 
-     <label>Address:</label><br />
-     
-      <select ref={stateRef} onChange={(e) => setSelectedState(e.target.value)} >
-        <option value="X">-- Select State --</option>
-        {
-          // <option value={states.idx}>{states.onm}</option>
-          states.map((state) =>{
-           return  <option value={state.idx}>{state.onm}</option>
-          })
-        }
-      </select>
-      <select ref={cityRef}>
-        <option value="">-- Select City --</option>
-        {
-          cities.map((city) =>{
-           return  <option value={city.idx}>{city.nm}</option>
-          })
-        }
-  
-      </select>
-      {error.addressCity && <span className="error">{" "}{error.addressCity}</span>}
-      <button onClick={handleAddSubmit}>Submit form</button>
+      <label>Address:</label><br />
+      
+        <select ref={stateRef} onChange={(e) => setSelectedState(e.target.value)} >
+          <option value="X">-- Select State --</option>
+          {
+            // <option value={states.idx}>{states.onm}</option>
+            states.map((state) =>{
+            return  <option value={state.idx}>{state.onm}</option>
+            })
+          }
+        </select>
+        <select ref={cityRef}>
+          <option value="">-- Select City --</option>
+          {
+            cities.map((city) =>{
+            return  <option value={city.idx}>{city.nm}</option>
+            })
+          }
+    
+        </select>
+        {error.addressCity && <span className="error">{" "}{error.addressCity}</span>}<br/><br/>
+        {/* <button onClick={handleAddSubmit}>Submit form</button> */}
+        <Button variant="success" onClick={handleAddSubmit} >Submit form</Button>
+        {/* <Button as="input" type="" onClick={handleAddSubmit} value="Submit" /> */}
+      </div>
     </div>
   );
 }
