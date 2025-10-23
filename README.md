@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# User Registration App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This is a simple React-based User Registration Application with profile viewing and editing functionality.  
+Users can register with details such as name, email, phone, gender, state, and city.  
+The app also allows searching, editing, and displaying user data using **localStorage**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### 1. User Registration
+- Register new users with validation for name, email, and phone number.
+- Gender selection and dynamic state–city dropdowns fetched from an external API.
+- User data saved in **localStorage**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. User Listing
+- All registered users are displayed on the **Home page** in card format.
+- Each user card shows the user's name and unique ID.
+- Clicking on a card navigates to the user’s profile page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3. User Profile
+- Displays detailed user information including name, email, phone, gender, city, and state.
+- Includes an **Edit** button that allows updating user information.
 
-### `npm test`
+### 4. Search Functionality
+- Real-time search by user name on the home page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 5. Edit and Update
+- Existing user details can be edited through the same form used for registration.
+- The app detects whether it’s in registration or edit mode based on routing.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
+- **React.js**
+- **React Router**
+- **React Bootstrap**
+- **React Icons**
+- **LocalStorage API**
+- **Fetch API** (for state and city data)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Folder Structure
 
-### `npm run eject`
+src/
+│
+├── components/
+│ ├── CustNavBar.js
+│ ├── RegistrationForm.js
+│ ├── UserCard.js
+│ ├── UserList.js
+│ └── UserProfile.js
+│
+├── pages/
+│ ├── Home.js
+│ ├── Profile.js
+│ └── Register.js
+│
+├── App.js
+├── App.css
+└── index.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How It Works
+1. On the **Register** page, users fill out their information and submit.  
+2. The app validates all fields and saves the user data to localStorage.  
+3. The **Home** page lists all registered users as cards.  
+4. Clicking a user card navigates to their **Profile**.  
+5. The **Edit** button on the Profile page opens the same form pre-filled with user data for editing.  
+6. The **Search bar** filters users by name dynamically.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

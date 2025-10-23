@@ -1,6 +1,5 @@
 import './App.css';
 import CustNavBar from './components/CustNavBar';
-// import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Register from './pages/Register';
 import Home from './pages/Home';
